@@ -1,0 +1,125 @@
+{
+  "technologies": [
+    {
+      "name": "Front-End",
+      "children": [
+        {
+          "name": "ES6 Tools",
+          "logo": "10,15",
+          "dailyDownloadNumber": 6000,
+          "popularityRange": 1
+        }, {
+          "name": "CSS",
+          "logo": "10,15",
+          "dailyDownloadNumber": 3000,
+          "popularityRange": 4
+        }, {
+          "name": "React",
+          "logo": "10,15",
+          "dailyDownloadNumber": 6500,
+          "popularityRange": 1
+        }, {
+          "name": "Angular",
+          "logo": "10,15",
+          "dailyDownloadNumber": 7000,
+          "popularityRange": 1
+        }, {
+          "name": "Backbone",
+          "logo": "10,15",
+          "dailyDownloadNumber": 200,
+          "popularityRange": 6
+        }, {
+          "name": "HTML5 ",
+          "logo": "10,15",
+          "dailyDownloadNumber": 3200,
+          "popularityRange": 1
+        }, {
+          "name": "jQuery",
+          "logo": "10,15",
+          "dailyDownloadNumber": 300,
+          "popularityRange": 4
+        }, {
+          "name": "Vue",
+          "logo": "10,15",
+          "dailyDownloadNumber": 5500,
+          "popularityRange": 1
+        }, {
+          "name": "Marionette",
+          "logo": "10,15",
+          "dailyDownloadNumber": 28,
+          "popularityRange": 7
+        }, {
+          "name": "Redux ",
+          "logo": "10,15",
+          "dailyDownloadNumber": 750,
+          "popularityRange": 1
+        }, {
+          "name": "Sass ",
+          "logo": "10,15",
+          "dailyDownloadNumber": 4000,
+          "popularityRange": 3
+        }
+      ]
+    }, {
+      "name": "Back-End",
+      "children": [
+        {
+          "name": "Docker",
+          "logo": "10,15",
+          "dailyDownloadNumber": 6000,
+          "popularityRange": 1
+        }, {
+          "name": "Vagrant",
+          "logo": "10,15",
+          "dailyDownloadNumber": 3000,
+          "popularityRange": 4
+        }, {
+          "name": "Pyramid",
+          "logo": "10,15",
+          "dailyDownloadNumber": 6500,
+          "popularityRange": 1
+        }, {
+          "name": "Laravel",
+          "logo": "10,15",
+          "dailyDownloadNumber": 7000,
+          "popularityRange": 1
+        }, {
+          "name": "Rails",
+          "logo": "10,15",
+          "dailyDownloadNumber": 200,
+          "popularityRange": 6
+        }, {
+          "name": "Apache Wicket ",
+          "logo": "10,15",
+          "dailyDownloadNumber": 3200,
+          "popularityRange": 1
+        }, {
+          "name": "Kubernetes",
+          "logo": "10,15",
+          "dailyDownloadNumber": 300,
+          "popularityRange": 4
+        }, {
+          "name": "FastAPI",
+          "logo": "10,15",
+          "dailyDownloadNumber": 5500,
+          "popularityRange": 1
+        }, {
+          "name": "CDK",
+          "logo": "10,15",
+          "dailyDownloadNumber": 28,
+          "popularityRange": 7
+        }, {
+          "name": "Slim",
+          "logo": "10,15",
+          "dailyDownloadNumber": 750,
+          "popularityRange": 1
+        }, {
+          "name": "Symfony",
+          "logo": "10,15",
+          "dailyDownloadNumber": 4000,
+          "popularityRange": 1
+        }
+      ]
+    }
+  ]
+}

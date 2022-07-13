@@ -1,0 +1,31 @@
+$card-width: 100%;
+$marg: 5px;
+$image-width: 50px;
+$text-color: darkgray;
+$box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+.ninja-card {
+  max-width: $card-width;
+  border: 1px solid $text-color;
+  border-radius: $marg;
+  margin: $marg 0;
+  padding: $marg;
+  display: flex;
+  color: $text-color;
+  box-shadow: $box-shadow;
+
+  &_image {
+    width: $image-width;
+    box-shadow: $box-shadow;
+  }
+
+  &_details {
+    margin-left: 20px;
+  }
+
+  &_name {
+    font-weight: bold;
+    color: dimgrey;
+  }
+}
+

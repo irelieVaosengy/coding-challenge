@@ -1,0 +1,13 @@
+.layout {
+  &_container {
+    margin-top: 20px;
+  }
+}
+@media (min-width: 1400px) {
+    .layout {
+      &_container {
+           max-width: 1376px;
+        margin-top: 20px;
+       }
+    }
+}
