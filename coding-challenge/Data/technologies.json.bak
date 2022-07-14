@@ -107,9 +107,21 @@
           "dailyDownloadNumber": 5500,
           "popularityRange": 1
         }, {
+			"id": "tb9",
+          "name": "CDK",
+          "logo": "10,15",
+          "dailyDownloadNumber": 28,
+          "popularityRange": 7
+        }, {
+			"id": "tb10",
+          "name": "Slim",
+          "logo": "10,15",
+          "dailyDownloadNumber": 750,
+          "popularityRange": 1
+        }, {
 			"id": "tb11",
           "name": "Symfony",
-          "logo": "https://cdn1.iconfinder.com/data/icons/line-awesome-vol-6/32/symfony-128.png",
+          "logo": "10,15",
           "dailyDownloadNumber": 4000,
           "popularityRange": 1
         }

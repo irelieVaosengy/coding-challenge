@@ -1,22 +1,22 @@
 import React, {useEffect, useState} from "react";
 import SearchForm from "../search-form/SearchForm";
-import NinjaCard from "../ninja-card/NinjaCard";
 import './technology-search.scss'
+import TechnologiesList from "../technologies-list/TechnologiesList ";
 
 const TechnologySearch = () => {
     const [query, setQuery] = useState('');
-    const [technologies, setTechnologies] = useState([]);
+    const [awesomeNinja, setAwesomeNinja] = useState([]);
     const INPUT_PLACEHOLDER = 'Enter technology name'
 
     useEffect(() => {
-        return populateTechnologiesData()
+        return getAwesomeNinjaData()
     }, [query])
 
-    const populateTechnologiesData = async () =>{
-        const response = await fetch(`tlmninja/ninjify?summary=${query}`);
-        const data = await response.json();
-        console.log(data)
-        setTechnologies(data);
+    const getAwesomeNinjaData = async () =>{
+        const response = await fetch(`tlmninja/ninjify?x=${query}`);
+        const ninja = await response.json();
+        console.log(ninja)
+        setAwesomeNinja(ninja);
     }
 
     const updateQueryParams = (event) => {
@@ -28,9 +28,7 @@ const TechnologySearch = () => {
             className="technology-search_search-form"
             onQueryChanges={updateQueryParams}
             placeHolder={INPUT_PLACEHOLDER}/>
-        {technologies.map(item => (
-            <NinjaCard key={item.date} ninjaData={item} />
-        ))}
+        <TechnologiesList></TechnologiesList>
     </div>
 }
 

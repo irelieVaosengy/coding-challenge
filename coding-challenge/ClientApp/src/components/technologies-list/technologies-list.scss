@@ -1,0 +1,8 @@
+.technologies-list {
+  display: flex;
+
+  &_type {
+    flex: 2;
+    margin: 10px;
+  }
+}

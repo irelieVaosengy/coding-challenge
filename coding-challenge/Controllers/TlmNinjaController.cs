@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using System.Text.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace coding_challenge.Controllers
 {
@@ -20,25 +22,76 @@ namespace coding_challenge.Controllers
             _logger = logger;
         }
 
-        [HttpGet("summary", Name = "ninjify")]
+        [HttpGet("x", Name = "ninjify")]
         [Route("ninjify")]
-        public IEnumerable<WeatherForecast> GetNinjify()
+        public Technology GetNinjify(String x)
         {
-            this.LoadJson();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            Technology technology = getAwesomeNinja(x);
+
+            return technology;
         }
 
-        public void LoadJson()
+        [HttpGet(Name = "technologies")]
+        [Route("technologies")]
+        public IEnumerable<TechnologyType> GetTechnologies()
         {
-            StreamReader r = new StreamReader("Data/technologies.json");
-            string jsonString = r.ReadToEnd();
-            Technology m = JsonConvert.DeserializeObject<Technology>(jsonString);
+            List<TechnologyType> technologyTypes = ReadTechnologiesFile();
+            return technologyTypes.ToArray();
+        }
+
+        public static List<TechnologyType> ReadTechnologiesFile()
+        {
+            string path = @"C:\Sample\tlm\IV\coding-challenge\coding-challenge\Data\technologies.json";
+            string[] lines = System.IO.File.ReadAllLines(path);
+            string jsonString = string.Empty;
+
+            if (System.IO.File.Exists(path))
+            {
+                // Read file using StreamReader. Reads file line by line  
+                using (StreamReader file = new StreamReader(path))
+                {
+                    int counter = 0;
+                    string ln;
+
+                    while ((ln = file.ReadLine()) != null)
+                    {
+                        Console.WriteLine(ln);
+                        jsonString += "\n" + ln;
+                        counter++;
+                    }
+                    file.Close();
+                    Console.WriteLine("File has {counter} lines.");
+                }
+            }
+
+            Console.WriteLine("str=" + jsonString);
+
+            var technologyTypeListJson = JsonConvert.DeserializeObject<TechnoFile>(jsonString);
+            /*foreach (var technoType in technologyTypeListJson.technologies)
+            {
+                String technoTypeName = technoType.name;
+                List<TechnologyType> technologies = new List<TechnologyType>();
+                
+                Technology resultProduct = new Technology
+                {
+                    name = item.name,
+                    weight = item.weight,
+                    value = item.value,
+                    type = item.type == "NonPerishable" ? false : true
+                };
+
+                resultProduct.factoryLocation = GetLocation(item.factoryLocation);
+                resultProduct.destination = GetLocation(item.destination);
+                list.Add(resultProduct);
+            }*/
+            return technologyTypeListJson.technologies;
+        }
+
+        public static Technology getAwesomeNinja(String query)
+        {
+            List<TechnologyType> technologyTypes = ReadTechnologiesFile();
+
+            return technologyTypes[0].children[0];
         }
     }
 }

@@ -13,9 +13,22 @@ namespace coding_challenge
 
     public class Technology
     {
+        public string id { get; set; }
         public string name { get; set; }
         public string logo { get; set; }
-        public int dailyDownloadNumber { get; set; }
+        public int dailyDownloadFrequency { get; set; }
         public int popularityRange { get; set; }
+    }
+
+    public class TechnologyType
+    {
+        public string id { get; set; }
+        public string  name { get; set; }
+        public List <Technology> children { get; set; }
+    }
+
+    public class TechnoFile
+    {
+        public List <TechnologyType> technologies { get; set; }
     }
 }
