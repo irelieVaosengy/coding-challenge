@@ -10,11 +10,7 @@ namespace coding_challenge.Controllers
     [Route("[controller]")]
     public class TlmNinjaController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
+        
         private readonly ILogger<TlmNinjaController> _logger;
 
         public TlmNinjaController(ILogger<TlmNinjaController> logger)
@@ -41,7 +37,7 @@ namespace coding_challenge.Controllers
 
         public static List<TechnologyType> ReadTechnologiesFile()
         {
-            string path = @"C:\Sample\tlm\IV\coding-challenge\coding-challenge\Data\technologies.json";
+            string path = Path.Combine(Environment.CurrentDirectory, @"Data\", "technologies.json");
             string[] lines = System.IO.File.ReadAllLines(path);
             string jsonString = string.Empty;
 
@@ -64,34 +60,36 @@ namespace coding_challenge.Controllers
                 }
             }
 
-            Console.WriteLine("str=" + jsonString);
-
             var technologyTypeListJson = JsonConvert.DeserializeObject<TechnoFile>(jsonString);
-            /*foreach (var technoType in technologyTypeListJson.technologies)
-            {
-                String technoTypeName = technoType.name;
-                List<TechnologyType> technologies = new List<TechnologyType>();
-                
-                Technology resultProduct = new Technology
-                {
-                    name = item.name,
-                    weight = item.weight,
-                    value = item.value,
-                    type = item.type == "NonPerishable" ? false : true
-                };
-
-                resultProduct.factoryLocation = GetLocation(item.factoryLocation);
-                resultProduct.destination = GetLocation(item.destination);
-                list.Add(resultProduct);
-            }*/
             return technologyTypeListJson.technologies;
         }
 
         public static Technology getAwesomeNinja(String query)
         {
             List<TechnologyType> technologyTypes = ReadTechnologiesFile();
+            List <Technology> technologies  = null;
+            Technology ninjaTechnology = null;
 
-            return technologyTypes[0].children[0];
+
+            technologyTypes.ForEach(technoType => {
+                String technoTypeName = technoType.name;
+                bool isMatch = System.Text.RegularExpressions.Regex.IsMatch(technoTypeName, @query, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+                if (isMatch)
+                {
+                    technologies = technoType.children;
+                }
+            });
+
+            if(technologies != null)
+            {
+                int count = technologies.Count();
+                Random rand = new Random();
+                int index = rand.Next(0, count - 1);
+
+                 ninjaTechnology = technologies[index];
+            }
+
+            return ninjaTechnology;
         }
     }
 }

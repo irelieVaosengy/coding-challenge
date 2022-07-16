@@ -2,7 +2,9 @@ $card-width: 100%;
 $marg: 5px;
 $image-width: 50px;
 $text-color: darkgray;
-$box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+$box-shadow-black: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+$box-shadow-blue: 0 10px 16px 0 rgb(14 136 229 / 20%), 0 6px 20px 0 rgb(14 136 229 / 19%);
+$margin: 20px;
 
 .list-item {
   max-width: $card-width;
@@ -12,20 +14,50 @@ $box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
   padding: $marg;
   display: flex;
   color: $text-color;
-  box-shadow: $box-shadow;
 
-  &_image,  {
-    width: $image-width;
-    box-shadow: $box-shadow;
+  &_image  {
+    width: auto;
+    height: 72px;
+    box-shadow: $box-shadow-black;
+
+    &-ninja {
+      margin-left: auto;
+      transform: translatey(0px);
+      animation: float 1s ease-in-out infinite;
+      z-index: 2;
+    }
   }
 
   &_details {
-    margin-left: 20px;
+    margin-left: $margin;
+    display: flex;
+    flex-direction: column;
   }
 
   &_h1 {
     font-weight: bold;
     color: dimgrey;
+  }
+
+  &--awesome-ninja{
+    box-shadow: $box-shadow-blue;
+    margin-bottom: $margin;
+    border-color: #00abff;
+  }
+
+  @keyframes float {
+    0% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
+    50% {
+      box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+      transform: translatey(-20px);
+    }
+    100% {
+      box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+      transform: translatey(0px);
+    }
   }
 }
 

@@ -1,7 +1,17 @@
 .search-form {
   width: 100%;
+  display: flex;
+
+  &_input-group {
+    width: 50%;
+  }
 
   &_btn {
     height: 100%;
   }
+
+ &_error-message {
+   padding: 0 10px;
+   margin-left: 20px;
+ }
 }
